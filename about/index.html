@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../stylesheets/map.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -50,32 +51,12 @@
                     <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../land-sites/">NorESM land sites</a>
+                    </li>
+                </ul>
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">About</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#doi">doi:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#overview-and-documentation">Overview and documentation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#quick-guides-for-using-the-platform">Quick guides for using the platform</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#quick-installation-for-developers">Quick installation for developers</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#user-galaxy-tools-workflows-and-tutorials">User: GALAXY tools, workflows and tutorials</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#code-development-team">Code development team</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#data-contributors">Data contributors</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#supporting-projects">Supporting projects</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#how-to-cite">How to cite</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#acknowledgement">Acknowledgement</a>
-    </li>
-    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -115,79 +96,7 @@
           <div role="main">
             <div class="section">
               
-                <p><img alt="NorESM logo" src="docs/img/NORESM-logo.png" />
-<img alt="EMERALD logo" src="docs/img/Emerald_darktext_whiteBG_small.png" />
-<img alt="LATICE logo" src="docs/img/UiO_LATICE_logo_black_small.png" /></p>
-<h1 id="platform-for-noresm-site-level-simulation-over-land">Platform for NorESM site-level simulation over land</h1>
-<h6 id="doi">doi:</h6>
-<h2 id="overview-and-documentation">Overview and documentation</h2>
-<p>The platform aims to facilitate site-level simulations over land using <a href="https://github.com/NorESMhub/NorESM">NorESM</a> and its land component <a href="https://github.com/NorESMhub/CTSM">CTSM</a> with the developing vegetation demographic module <a href="https://github.com/NGEET/fates">FATES</a>. It provides <strong>optimized model setup, input data and reproducible workflows for running the model and analyzing model output over sites</strong> with meteorological, ecological and hydrological observations accross Nordic regions with minimal techincal obstacles.</p>
-<p>The platform aims to bridge the gaps between observations and modelling, and <strong>promote the usage of site-level observations to test, validate and improve NorESM</strong> and its land component on the one hand, and <strong>promote the usage of NorESM and its land model component by non-modellers</strong> on the other hand.</p>
-<p>The <a href="">observation sites</a> currently included in the platform</p>
-<p><img alt="sites" src="docs/img/Observation_sites.png" /></p>
-<p>For more information on the platform, please see our <a href="NorESMhub.github.io/NorESM_LandSites_Platform">technical documentation</a>.</p>
-<h2 id="quick-guides-for-using-the-platform">Quick guides for using the platform</h2>
-<ul>
-<li>
-<h3 id="quick-installation-for-developers">Quick installation for developers</h3>
-Note that we are using NREC for development and testing for the time being. In the future, we want a more flexible solution using Docker. To use NREC, you need a user account and to apply for resources, so get in touch if you need this!</li>
-</ul>
-<p>Clone the repository:</p>
-<pre><code>git clone https://github.com/NorESMhub/NorESM_LandSites_Platform.git
-cd NorESM_LandSites_Platform
-</code></pre>
-<p><em>Remember to switch to the correct branch of interest, e.g.:</em></p>
-<pre><code>git branch -a # Lists all remote branches
-git checkout -b my_new_branch origin/platform_dev
-</code></pre>
-<p>To install the NorESM and NREC dependencies:</p>
-<pre><code>cd .machine/NREC_VM_setup
-chmod +x install_platform.sh
-./install_platform.sh
-</code></pre>
-<p>To install the Python package and its dependencies:</p>
-<pre><code>cd ~/NorESM_LandSites_Platform
-pip install -e . # ATTENTION, note the &quot;.&quot;!
-</code></pre>
-<ul>
-<li>
-<h3 id="user-galaxy-tools-workflows-and-tutorials">User: <em>GALAXY tools, workflows and tutorials</em></h3>
-</li>
-<li>A graphic user interface for running site-level simulation is available on the cloud computing platform <a href="https://galaxyproject.org/">GALAXY</a> as a tool (CTSM/FATES-EMERALD), with a dedicated <a href="https://training.galaxyproject.org/training-material/topics/climate/tutorials/fates/tutorial.html">tutorial</a> and <a href="">workflows</a> for its usage.</li>
-<li>Please contact <a href="https://github.com/annefou">Anne Fouilloux</a> for the development of GALAXY tools related to the platform.</li>
-</ul>
-<h2 id="code-development-team">Code development team</h2>
-<ul>
-<li><a href="https://github.com/huitang-earth">Hui Tang</a></li>
-<li><a href="https://github.com/lasseke">Lasse Torben Keetz</a></li>
-<li><a href="https://github.com/ziu1986">Stefanie Falk</a></li>
-<li><a href="https://github.com/emiliano-gelati">Emiliano Gelati</a></li>
-<li><a href="https://github.com/ecaas">Elin Aas</a></li>
-<li><a href="https://github.com/annefou">Anne Fouilloux</a></li>
-<li><a href="https://github.com/yelizy">Yeliz Yilmaz</a></li>
-<li><a href="https://github.com/evalieungh">Eva Lieungh</a></li>
-<li><a href="https://github.com/peterhor">Peter Horvath</a></li>
-<li><a href="https://github.com/kjetilaas">Kjetil Aas</a></li>
-<li><a href="https://github.com/sunnivin">Sunniva Indrehus</a></li>
-<li><a href="https://github.com/devarajun">Devaraju Narayanappa</a></li>
-</ul>
-<h2 id="data-contributors">Data contributors</h2>
-<ul>
-<li><a href="https://github.com/srg101">Sonya Geange</a></li>
-<li><a href="https://github.com/ingealthuizen">Inge Althuizen</a></li>
-</ul>
-<h2 id="supporting-projects">Supporting projects</h2>
-<ul>
-<li><a href="https://www.mn.uio.no/geo/english/research/projects/emerald/">EMERALD</a></li>
-<li><a href="https://www.mn.uio.no/geo/english/research/groups/latice/">LATICE</a></li>
-<li><a href="https://www.uib.no/en/rg/EECRG/55395/seedclim">SeedClim</a></li>
-<li><a href="https://www.uib.no/en/rg/EECRG/95156/landpress">LandPress</a></li>
-<li><a href="https://www.uib.no/en/rg/EECRG/126712/three-d">THREE-D</a></li>
-<li><a href="https://www.ines.noresm.org/">INES</a></li>
-<li><a href="https://www.eosc-nordic.eu/">EOSC-Nordic</a></li>
-</ul>
-<h2 id="how-to-cite">How to cite</h2>
-<h2 id="acknowledgement">Acknowledgement</h2>
+                <p>../README.md</p>
               
             </div>
           </div>
@@ -198,7 +107,7 @@ pip install -e . # ATTENTION, note the &quot;.&quot;!
         <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../land-sites/" class="btn btn-neutral" title="NorESM land sites"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -224,7 +133,7 @@ pip install -e . # ATTENTION, note the &quot;.&quot;!
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../land-sites/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
@@ -234,6 +143,7 @@ pip install -e . # ATTENTION, note the &quot;.&quot;!
     <script>var base_url = '..';</script>
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
+      <script src="../javascripts/map.js" defer></script>
       <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
