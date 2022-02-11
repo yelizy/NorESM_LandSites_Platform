@@ -55,11 +55,13 @@
                     <li class="toctree-l1"><a class="reference internal" href="../land-sites/">NorESM land sites</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../user_guide/">User guide</a>
+                    </li>
+                </ul>
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">About</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#doi">doi:</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#overview-and-documentation">Overview and documentation</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#quick-guides-for-using-the-platform">Quick guides for using the platform</a>
@@ -80,11 +82,13 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#acknowledgement">Acknowledgement</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contact">Contact</a>
+    </li>
     </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing & code of conduct</a>
                     </li>
                 </ul>
       </div>
@@ -124,37 +128,17 @@
 <img alt="EMERALD logo" src="https://tinyimg.io/i/O6Vkl1F.png" />
 <img alt="LATICE logo" src="https://tinyimg.io/i/4IM1ogh.png" /></p>
 <h1 id="platform-for-noresm-site-level-simulation-over-land">Platform for NorESM site-level simulation over land</h1>
-<h6 id="doi">doi:</h6>
+<p>doi: <strong><em>under construction</em></strong></p>
 <h2 id="overview-and-documentation">Overview and documentation</h2>
-<p>The platform aims to facilitate site-level simulations over land using <a href="https://github.com/NorESMhub/NorESM">NorESM</a> and its land component <a href="https://github.com/NorESMhub/CTSM">CTSM</a> with the developing vegetation demographic module <a href="https://github.com/NGEET/fates">FATES</a>. It provides <strong>optimized model setup, input data and reproducible workflows for running the model and analyzing model output over sites</strong> with meteorological, ecological and hydrological observations accross Nordic regions with minimal techincal obstacles.</p>
+<p>The platform aims to facilitate site-level simulations over land using <a href="https://github.com/NorESMhub/NorESM">NorESM</a> and its land component <a href="https://github.com/NorESMhub/CTSM">CTSM</a> with the developing vegetation demographic module <a href="https://github.com/NGEET/fates">FATES</a>. It provides <strong>optimized model setup, input data and reproducible workflows for running the model and analyzing model output over sites</strong> with meteorological, ecological and hydrological observations with minimal techincal obstacles.</p>
 <p>The platform aims to bridge the gaps between observations and modelling, and <strong>promote the usage of site-level observations to test, validate and improve NorESM</strong> and its land component on the one hand, and <strong>promote the usage of NorESM and its land model component by non-modellers</strong> on the other hand.</p>
-<p>The observation sites currently included in the platform:</p>
-<p><img alt="sites" src="https://tinyimg.io/i/cOVIgv4.png" /></p>
-<p>For more information on the platform, please see our <a href="NorESMhub.github.io/NorESM_LandSites_Platform">technical documentation</a>.</p>
+<p>The observation sites currently included in the platform are described in the <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">Land sites</a> section. </p>
 <h2 id="quick-guides-for-using-the-platform">Quick guides for using the platform</h2>
 <ul>
 <li>
 <h3 id="quick-installation-for-developers">Quick installation for developers</h3>
-Note that we are using NREC for development and testing for the time being. In the future, we want a more flexible solution using Docker. To use NREC, you need a user account and to apply for resources, so get in touch if you need this!</li>
-</ul>
-<p>Clone the repository:</p>
-<pre><code>git clone https://github.com/NorESMhub/NorESM_LandSites_Platform.git
-cd NorESM_LandSites_Platform
-</code></pre>
-<p><em>Remember to switch to the correct branch of interest, e.g.:</em></p>
-<pre><code>git branch -a # Lists all remote branches
-git checkout -b my_new_branch origin/platform_dev
-</code></pre>
-<p>To install the NorESM and NREC dependencies:</p>
-<pre><code>cd .machine/NREC_VM_setup
-chmod +x install_platform.sh
-./install_platform.sh
-</code></pre>
-<p>To install the Python package and its dependencies:</p>
-<pre><code>cd ~/NorESM_LandSites_Platform
-pip install -e . # ATTENTION, note the &quot;.&quot;!
-</code></pre>
-<ul>
+<p>Instructions for installation are found in the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform">repository</a>. Note that we are using NREC for development and testing for the time being. In the future, we want a more flexible solution using Docker. To use NREC, you need a user account and to apply for resources, so get in touch if you need this!</p>
+</li>
 <li>
 <h3 id="user-galaxy-tools-workflows-and-tutorials">User: <em>GALAXY tools, workflows and tutorials</em></h3>
 </li>
@@ -193,6 +177,8 @@ pip install -e . # ATTENTION, note the &quot;.&quot;!
 </ul>
 <h2 id="how-to-cite">How to cite</h2>
 <h2 id="acknowledgement">Acknowledgement</h2>
+<h2 id="contact">Contact</h2>
+<p>For questions about the platform, please <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues/new">open an issue</a> on GitHub or get in touch with one of the code developers directly. </p>
               
             </div>
           </div>
@@ -200,10 +186,10 @@ pip install -e . # ATTENTION, note the &quot;.&quot;!
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing & code of conduct">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../land-sites/" class="btn btn-neutral" title="NorESM land sites"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../user_guide/" class="btn btn-neutral" title="User guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -229,7 +215,7 @@ pip install -e . # ATTENTION, note the &quot;.&quot;!
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../land-sites/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../user_guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
