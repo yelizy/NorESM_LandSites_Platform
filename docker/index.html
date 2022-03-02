@@ -116,7 +116,7 @@
 <p>Once the process is running you can access <strong>make_settings</strong> app at <a href="localhost:5006">localhost:5006</a> and jupyter notebook environment is accessible at <a href="localhost:8888">localhost:8888</a> with password: <code>pass</code></p>
 <p>To stop the container running press <code>Ctrl+c</code></p>
 <h1 id="build-the-container">Build the container</h1>
-<p>Once you'd like to test new changes to the setup, you'll need to rebuild the container. To do this, ensure you are in the root directory of the repository and run:</p>
+<p>Once you'd like to test new changes to the setup, you'll need to rebuild the container. This should ideally be done on a remote computer, like NREC, and not on a laptop (especially if you are using Windows!). To rebuild the container, ensure you are in the root directory of the repository and run:</p>
 <pre><code class="language-bash">docker build . -t &lt;TAG&gt;:&lt;VERSION&gt;
 </code></pre>
 <ul>
