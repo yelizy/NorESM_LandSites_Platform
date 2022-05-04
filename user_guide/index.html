@@ -66,11 +66,19 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#1-start-the-container">1. Start the container 🧰</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2-set-simulation-settings">2. Set simulation settings ⚙️</a>
+    <li class="toctree-l3"><a class="reference internal" href="#2-inside-gui-set-simulation-settings">2. Inside GUI: Set simulation settings ⚙️</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#21-download-site-data-button">2.1 Download site data button</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#22-create-case-button">2.2 Create case button</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#3-run-your-simulations">3. Run your simulations 👩‍💻</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#4-look-at-your-output">4. Look at your output 📈</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-close-the-container">5. Close the container</a>
     </li>
         </ul>
     </li>
@@ -121,70 +129,66 @@
                 <h1 id="user-guide">User guide</h1>
 <p>🚧 <em>under construction - please help us by reporting errors and questions on our <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues/new">issues page</a></em></p>
 <p>This is the user guide for running point simulations with the <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/">NorESM LandSites Platform</a> 🌍</p>
-<p>You will need to open two new windows in the process, so it's a good idea to make this window narrower so you can see both the user guide and another window next to it.</p>
-<p>You will need to open two new windows in the process, so it's a good idea to use two screens or make this window narrower so you can see both the user guide and another window next to it.</p>
+<p>You will need to open two new windows in the process, so it's a good idea to use two screens or to make this window narrower so you can see both the user guide and another window next to it.</p>
 <hr />
 <h2 id="tldr-quick-start">TL;DR quick start 🏃‍♀️🏃‍♂️</h2>
-<p>go to repository: </p>
-<pre><code>$ cd NorESM_LandSites_platform
+<p>go to repository and start the Docker container: </p>
+<pre><code>$ cd NorESM_LandSites_platform 
+$ docker-compose up
 </code></pre>
-<p>start the Docker container: </p>
-<pre><code>$ docker-compose up
-</code></pre>
-<p>go to container: <a href="http://localhost:8888">localhost:8888</a> password = pass</p>
-<p>open New Terminal and run commands:</p>
-<pre><code>$ cd landsites_tools/simulation
-$ python make_cases.py
-$ python run_cases.py
-</code></pre>
-<p>access output in data/output 🎉</p>
+<p>go to container GUI: <a href="http://localhost:8080">localhost:8080</a> and push buttons</p>
+<p>access jypyter notebooks on <a href="http://localhost:8888">localhost:8888</a> 🎉</p>
 <hr />
 <h2 id="step-by-step-guide-for-using-the-platform">Step by step guide for using the platform</h2>
 <h3 id="0-prerequisites-first-time-setup">0. Prerequisites (first time setup) 🌱</h3>
 <p>To use the NorESM LandSites Platform, you need to install </p>
 <ul>
-<li><a href="https://git-scm.com/downloads" title="click the pc screen button if you are on Windows">Git</a> and </li>
+<li><a href="https://git-scm.com/downloads" title="click the pc screen button if you are on Windows">Git</a> (and make a user account) and</li>
 <li><a href="https://www.docker.com/products/docker-desktop">Docker desktop</a> </li>
 </ul>
-<p>before you can clone the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform" title="repository for the NorESM LandSites platform">repository</a> (= download platform scripts) and start working with the Docker container.</p>
+<p>before you can clone the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform" title="repository for the NorESM LandSites platform">repository</a> (= download platform scripts) and start working with the Docker container. If you don't want to make a GitHub account, you may try to download and unpack the repository manually instead with the <code>code</code> button and ´download zip´.</p>
 <p>Open file explorer and find a suitable folder to serve as working directory. This is where you will store the repository and installation files needed by the platform, as well as your output files (which may take up quite a bit of space!). Your working directory should be somewhere on your C: drive, for instance <code>C:/Users/yourusername</code>.</p>
 <p>When you are in your chosen working directory, right-click and choose "Git Bash here". In the terminal that pops up, paste in the following line by right-clicking:</p>
 <pre><code>$ git clone https://github.com/NorESMhub/NorESM_LandSites_Platform.git
 </code></pre>
-<p>This will download (= clone) the repository (= folder structure and files) to your working directory. You can now see the folder and files in your file explorer. Most of the files can be opened in a text editor like Notepad if you want to look at their contents. </p>
-<p>Once Git, Docker desktop and the repository are in place, you don't have to do this again. If the platform is updated the next time you want to use it, you probably want to update the repository by typing <code>git pull</code> into Git Bash from your local clone of the repository. </p>
+<p>This will download (= clone) the repository (= folder structure and files) to your working directory. You can now see the folder and files in your file explorer. Most of the files can be opened in a text editor like Notepad if you want to look at their contents.</p>
+<p>Once Git, Docker desktop and the repository are in place, you don't have to do this again. If the platform has been updated the next time you want to use it, you might want to download the updates by typing <code>git pull</code> into Git Bash from your local clone of the repository. </p>
 <h3 id="1-start-the-container">1. Start the container 🧰</h3>
-<p>In the working directory where you have cloned the repository, open a terminal by right-clicking and choosing "Git Bash here". Make sure you are in the folder containing the <code>docker-compose.yml</code> file (type <code>ls</code> and hit enter to list the files in the current folder). Then write this command and hit enter to get the container up and running:</p>
+<p>In the working directory where you have cloned the repository, open a terminal by right-clicking and choosing "Git Bash here" (or use the one you already have open if you just did the first time setup). Make sure you are in the folder containing the <code>docker-compose.yml</code> file (type <code>ls</code> and hit enter to list the files in the current folder; if you see NorESM_LandSites_Platform, you need to change directory by typing ´cd NorESM_LandSites_Platform´). Then write this command and hit enter to get the container up and running:</p>
 <pre><code>$ docker-compose up
 </code></pre>
-<p>This will download some files and give you this address to access the container through your browser. 
-To set custom simulation settings, start by going to <a href="http://localhost:5006/make_settings">http://localhost:5006/make_settings</a>, 
-or, if you want to skip that step, you can go directly to <a href="http://localhost:8888">localhost:8888</a> and use the password: pass.</p>
-<p style="color:d0d0d0">To stop the container running press Ctrl+c (in Git Bash).</p>
-
-<h3 id="2-set-simulation-settings">2. Set simulation settings ⚙️</h3>
-<p>If you are doing a quick test with <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#settings-file">default platform settings</a>, you can skip this step and go straight to <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide/#run-your-simulations">3. running your simulations</a>.  </p>
-<p>To set custom <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#settings-file">simulation settings</a>, start by going to <a href="http://localhost:5006/make_settings">http://localhost:5006/make_settings</a> in your browser. The page is quite self-explanatory and produces a new settings file that will be used to make <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#make_casespy" title="case= an instance of the model">cases</a> that you can run. The different options are explained further in our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#settings-file">documentation</a>.</p>
-<p>(This step can also be done from a terminal by using make_cases.py interactively with the <code>-i</code> flag. -- see <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/main/landsites_tools/simulation/README.md" title="how to use make_cases interactively">this guide</a>)</p>
+<p>The first time you execute this, a lot of files will be downloaded. When the container is up and running, you will get the following address to access the container through your browser: <a href="http://localhost:8080">localhost:8080</a></p>
+<h3 id="2-inside-gui-set-simulation-settings">2. Inside GUI: Set simulation settings ⚙️</h3>
+<p>You should now be looking at the graphical user interface (=GUI, at <a href="http://localhost:8080">localhost:8080</a>) for setting up and running simulations. This interface has access to the Docker container you started in step 1.</p>
+<p>(If you are doing a quick test with <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#settings-file">default platform settings</a>, just pick a site and click  ´create case´ and then ´run´.)</p>
+<h4 id="21-download-site-data-button">2.1 Download site data button</h4>
+<p>The ´download site data´ button gives you the input data for your selected site. We provide a notebook called ´input_visualization.ipynb´ which you can open in Jupyterlab on <a href="localhost:8888">localhost:8888</a> to explore some of the data that goes in to a simulation. This is a good thing to do while your case is running (which might take some time).</p>
+<h4 id="22-create-case-button">2.2 Create case button</h4>
+<p>With the ´create case´ button, you can look at and edit some model settings and parameters as you create a new case. This is not an exhaustive list of possible changes (by far), but give you easy access to some options. All the boxes have default values for a quick but not especially realistic simulation.</p>
+<p>The box that pops up with settings has four tabs:</p>
+<ul>
+<li><strong>CTSM</strong> (=Community Terrestrial Systems Model) settings for general options like simulation period</li>
+<li><strong>CLM / Namelist</strong> settings where you can change CO2 concentration, switch some modules of/off.</li>
+<li><strong>CLM / Namelist / history</strong> settings where advanced users can set how and when the simulation output is stored.</li>
+<li><strong>FATES</strong> parameters where you can disable some Plant Functional Types (PFTs) and change some vegetation parameters.</li>
+</ul>
+<p>Once you have created your case with the desired settings, it will appear in a list of cases with the case ID, status, creation date, grid information, component set, a link to view the settings you specified, and some buttons with more options. Pay attention to the Status, which will transition from pending to ready when the case has been built. </p>
 <h3 id="3-run-your-simulations">3. Run your simulations 👩‍💻</h3>
-<p>Go to the container in your browser: <a href="http://localhost:8888">localhost:8888</a> and use the password: pass to enter it. You will see a lot of files and folders (= the GitHub repository contents). Navigate to the <code>notebooks</code> folder and open the one called <code>run_simulations.ipynb</code>. It's an interactive Jupyter notebook where you can execute code in cells by clicking the play/run buttons next to them, and see the output directly below the cell. </p>
-<p>Alternatively, you can start a terminal in the container and execute the following commands. If you have changed the settings file (from step 2), add it like you see in the square brackets:</p>
-<pre><code>$ cd landsites_tools/simulation
-$ python make_cases.py [-f yoursettingsfile.txt]
-$ python run_cases.py [-f yoursettingsfile.txt]
-</code></pre>
-<p>You are now running the model! 🎉 
-Depending on your settings and machine hardware, making the case(s) and running the simulations might take some time to complete. ⏳</p>
-<p>If you got an error message somewhere along the way, please head over to our GitHub and write an <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues/new">issue</a> describing what happened, what machine you are on (mac/windows/HPC etc.), and copy in the error message. </p>
-<p>Output will be stored at time intervals set by the settings file (default = monthly) in the <code>data/output</code> folder. 
-From there you can download them to your local computer, or continue working with them inside the container.</p>
-<p>To stop the container once the simulations are complete (but not before!), go back to your Git Bash terminal and press Ctrl+c.</p>
+<p>Once the case is ready, you can start the simulation with ´run´. There is a button to ´download´ the output when the run is finished, and to ´edit´ the settings and create a new case, or ´delete´ the case. Depending of how long you asked the model to run for (default is 1 year), and your hardware, the simulation can take some time ⏳. On a regular laptop, one year of simulation of a single site (= gridcell) might take ~5-20 minutes. Make sure your computer is not running other heavy programs simultaneously (like GIS, Photoshop or 1000 open browser tabs 👀). The Docker container you started in step 1 is performing the simulation using your local computer. Advanced users may also use the container on an HPC cluster to speed up long simulations.</p>
+<blockquote>
+<p>While you wait for the simulation to finish, you may like to inspect the model input data more closely. Open a new browser tab and go to the Docker container at <a href="http://localhost:8888">localhost:8888</a>. Navigate to the ´notebooks´ folder and open the ´input_visualization.ipynb´ notebook. It will guide you through some of the input data for the model. </p>
+</blockquote>
+<p>Soon your simulations will be finished! 🎉 </p>
+<p>If you got an error message somewhere along the way, please head over to our GitHub and write an <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues/new">issue</a> describing what happened, what machine you are on (mac/windows/HPC etc.), and copy in the error message and any other relevant information. </p>
+<p>Output will be stored at time intervals you set (default is monthly), and can be downloaded from the container with the ´download´ button or viewed in the <code>data/output</code> folder in the container. </p>
 <h3 id="4-look-at-your-output">4. Look at your output 📈</h3>
-<p>Output is stored in the <code>data/output</code> folder.</p>
-<p>An example of how you can visualize it with python is provided in the <code>plot_example.ipynb</code> Jupyter notebook insite the <code>notebooks</code> folder. You can execute this notebook directly in the container in the same way as the <code>run_simulations.ipynb</code> notebook. </p>
+<p>Output is stored in the <code>data/output</code> folder in the container, accessed on <a href="http://localhost:8888">localhost:8888</a>.</p>
+<p>Nagivate to the ´notebooks´ folder and open the ´output_visualization.ipynb´ notebook. It guides you through some ways of looking at the model output, though there are many other ways to do this and much more model output available!</p>
 <p><a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#postprocess">Output files</a> can alternatively be opened in Panoply, R, or using python on your local computer.</p>
-<p style="color:green">🌲 ____ 🌳 ____ 🌲 ____ 🌳 ____ 🌲 ____ 🌳 ____ 🌲 ____ 🌳 ____ 🌲</p>
-
+<h3 id="5-close-the-container">5. Close the container</h3>
+<p>NB! The container will continue to run unless you stop it. When you are finished with simulations and output processing and downloading things you might need offline, go back to your Git Bash terminal and press ´Ctrl+c´.</p>
+<pre><code>🌲 ____ 🌳 ____ 🌲 ____ 🌳 ____ 🌲 ____ 🌳 ____ 🌲 ____ 🌳 ____ 🌲
+</code></pre>
 <hr />
 <p><a href="https://www.noresm.org/"><img alt="NorESM logo" src="https://tinyimg.io/i/9AdhM6J.png" title="the Norwegian Earth System Model" /></a>
 <a href="https://www.mn.uio.no/geo/english/research/projects/emerald/"><img alt="EMERALD logo" src="https://tinyimg.io/i/O6Vkl1F.png" title="EMERALD project" /></a>

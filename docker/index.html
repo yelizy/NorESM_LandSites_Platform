@@ -104,11 +104,14 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Install <a href="https://docs.docker.com/get-docker/">Docker</a> for your operating system.</li>
-<li>Run <code>docker pull lassetk/noresm_land_sites_platform:latest</code> to pull the image to your local storage.</li>
+<li>Run <code>docker pull lassetk/noresm_land_sites_platform:latest</code> to pull the image to your local storage.
+ -- Linux: need to use sudo or change <a href="https://https://docs.docker.com/engine/install/linux-postinstall">permission</a>
+ -- The image will be kept in a <a href="https://www.freecodecamp.org/news/where-are-docker-images-stored-docker-container-paths-explained/">default location</a> depending on your system.</li>
+<li>git clone <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform.git">NorESM_LandSites_Platform</a> to local computer</li>
 </ul>
 <h2 id="setup-the-container">Setup the container</h2>
 <p>All the setup we need for running the container are in <a href="../docker-compose.yml">docker-compose.yml</a>. Feel free so edit memory and CPU constrains depending on your available resources.</p>
-<p>File mapping between the container and the host is defined in th <code>volumes:</code> block. By default, only <code>data</code> directory is mapped.</p>
+<p>File mapping between the container and the host is defined in the <code>volumes:</code> block. By default, only <code>data</code> directory of local 'NorESM_LandSites_Platform' folder is mapped. </p>
 <h2 id="run">Run</h2>
 <p>To run the container, first be sure you are in the main directory containing <a href="../docker-compose.yml">docker-compose.yml</a>. Then run following command</p>
 <pre><code class="language-bash">docker-compose up
