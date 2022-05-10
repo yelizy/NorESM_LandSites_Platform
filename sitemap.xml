@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://noresmhub.github.io/NorESM_LandSites_Platform/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://noresmhub.github.io/NorESM_LandSites_Platform/about/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://noresmhub.github.io/NorESM_LandSites_Platform/docker/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
