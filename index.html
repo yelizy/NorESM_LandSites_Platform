@@ -52,53 +52,53 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#platform-content">Platform content</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#docker-container">Docker container</a>
+    <li class="toctree-l3"><a class="reference internal" href="#api">API</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#graphical-user-interface">Graphical user interface</a>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-containers-and-model-dependencies">Docker containers and model dependencies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#web-user-interface">Web User Interface</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#jupyter-server">Jupyter Server</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#model-versions">Model versions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#input-data">Input data</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#release-010-dev">Release 0.1.0-dev</a>
+    <li class="toctree-l4"><a class="reference internal" href="#component-sets-compsets">Component sets (compsets)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#atmospheric-forcing">Atmospheric forcing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#surface-data">Surface data</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#spin-up">Spin-up</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#compsets">Compsets</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#model-parameters-and-sites-configuration">Model parameters and sites configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-simulations-in-the-web-user-interface">Running simulations in the web User Interface</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#create-case">Create case</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#run-environment-settings">Run environment settings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#clm-namelist-simulation-settings">CLM namelist simulation settings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#history-files">History Files</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fates-simulation-settings">FATES simulation settings</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#input-data">Input data</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#atmospheric-forcing">Atmospheric forcing</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#surface-data">Surface data</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#spin-up">Spin-up</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#running-simulations">Running simulations</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#settings-file">Settings file</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#model-run-types">model run types</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#model-types">model types 🚧</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#make_casespy">make_cases.py</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#run_casespy">run_cases.py</a>
+    <li class="toctree-l3"><a class="reference internal" href="#running-and-editing-simulations">Running and editing simulations</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#postprocess">Postprocess</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#output-files">output files</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#history-variables">history variables</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#plotting">plotting</a>
     </li>
         </ul>
     </li>
@@ -117,6 +117,10 @@
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="user_guide/">User guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="implementation/">Implementation</a>
                     </li>
                 </ul>
                 <ul>
@@ -161,23 +165,45 @@
             <div class="section">
               
                 <h1 id="welcome-to-the-documentation-of-the-noresm-landsites-platform">Welcome to the documentation of the NorESM LandSites Platform</h1>
-<p>This page describes what the platform contains, how the input data were made, the main functionalities, and model output. Users should go to <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide">this user guide</a>, and refer to this documentation for further detail. Advanced users may also be interested in the technical documentation of <a href="https://fates-docs.readthedocs.io/en/stable/">FATES</a> and <a href="https://escomp.github.io/ctsm-docs/versions/release-clm5.0/html/users_guide/index.html">CLM</a>.</p>
-<p>The main code is stored <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform">here</a> in a <a href="https://en.wikipedia.org/wiki/Git" title="a place to store code with version control">GitHub repository</a>. The <code>main</code> branch stores the latest functioning version, and development is done on <code>platform_dev</code>. Older versions can be accessed under <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/releases">Releases</a>. This documentation page is made with GitHub pages (<code>gh-pages</code> branch) and Mkdocs. </p>
-<p>To run model simulations, go to our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide">user guide</a>. Advanced users who want to do development in addition to just running simulations can request resources on e.g. <a href="https://nrec.no/" title="Norwegian Research and Education Cloud: Fast, standardized servers and storage for the Norwegian higher education sector">NREC</a>. An early version of the platform is also available on <a href="https://training.galaxyproject.org/training-material/topics/climate/tutorials/fates/tutorial.html" title="an open, web-based platform for accessible, reproducible, and transparent computational biological research">Galaxy</a>.</p>
-<p>🚧
-<em>NB! This documentation is still under construction. Some parts are missing or may be written for older testing versions. Please let us know if you have suggestions for something to add or explain better in the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues">issues</a></em>
-🚧</p>
+<p>This page describes what the platform contains, how the input data were made, the main functionalities, and model output. See the navigation panel on the left for our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide">user guide</a>, <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">available sites</a>, <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/about/">about us</a>, and <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/">contribution guidelines and Code of Conduct</a>. Advanced users may also be interested in the technical documentation of <a href="https://fates-docs.readthedocs.io/en/stable/">FATES</a> and <a href="https://escomp.github.io/ctsm-docs/versions/release-clm5.0/html/users_guide/index.html">CLM</a>.</p>
+<p>The main code is stored <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform">here</a> in a <a href="https://en.wikipedia.org/wiki/Git" title="a place to store code with version control">GitHub repository</a>. The <code>main</code> branch stores the latest functioning version. Older versions can be accessed under <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/releases">Releases</a>. This documentation page is made with GitHub pages (<code>gh-pages</code> branch) and <a href="https://www.mkdocs.org/">Mkdocs</a>. To contribute to the code or documentation, see our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/">Contributing</a> instructions. There you will also find our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/#code-of-conduct">Code of Conduct</a>.</p>
+<p>Advanced users who want to do development in addition to just running simulations can request resources on e.g. <a href="https://nrec.no/" title="Norwegian Research and Education Cloud: Fast, standardized servers and storage for the Norwegian higher education sector">NREC</a>. An early version of the platform is also available on <a href="https://training.galaxyproject.org/training-material/topics/climate/tutorials/fates/tutorial.html" title="an open, web-based platform for accessible, reproducible, and transparent computational biological research">Galaxy</a>.</p>
+<p>Please let us know if you have suggestions or trouble using the platform by opening a new <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues">issue</a> on GitHub.</p>
+<p>🚧 NB! This documentation is under construction and contains some outdated and/or missing parts. 🚧</p>
 <hr />
 <h2 id="platform-content">Platform content</h2>
-<p>You can use the platform to run <a href="https://en.wikipedia.org/wiki/Climate_model#/media/File:Global_Climate_Model.png" title="the world is divided into a 3-dimensional grid, where equations can be solved within each gridcell, and information passed between gridcells at certain time points. Single-cell model 'runs' only simulate model processes for a single gridcell, which takes a lot less computational power">single-cell model simulations</a> in a Docker container. We provide <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">sites</a> with high quality input data (atmospheric forcing, land surface data, 'spin-up'), and narrow down the long list of possible output variables into something manageable.</p>
-<p>🚧<em>add an illustration here</em></p>
-<h3 id="docker-container">Docker container</h3>
-<p>A <a href="https://docs.docker.com/get-started/overview/" title="a text document that contains all the commands a user could call on the command line to assemble an image">Docker file</a> is used to enable simulations on any machine, such as a laptop or an HPC cluster. When we release a new version, we have to build a container using this Docker file. Users can then download the dontainer and run simulations there. The reason for using a container is that the NorESM model code is not an app but rather a collection of code, and that code needs to be modified in order to run on a new machine. To make the model more like a downloadable app for any machine (e.g. your mac/windows/linux laptop/pc), we put the code in a Docker container that works as a mini-machine within your machine (laptop/pc). For details on the docker file and how to modify or update it, look the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/tree/main/docs/docker.md">this description on GitHub</a></p>
-<h3 id="graphical-user-interface">Graphical user interface</h3>
-<p>Users can set up cases, change some model settings, and run simulations via a GUI, which is run from a Docker container. Once the container is correctly up and running, the GUI will be available at <a href="localhost:8080">localhost:8080</a></p>
+<p>You can use the platform to run <a href="https://en.wikipedia.org/wiki/Climate_model#/media/File:Global_Climate_Model.png" title="the world is divided into a 3-dimensional grid, where equations can be solved within each gridcell, and information passed between gridcells at certain time points. Single-cell model 'runs' only simulate model processes for a single gridcell, which takes a lot less computational power">single-cell model simulations</a> from a browser on your local computer. We provide <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">sites</a> with high quality input data (atmospheric forcing, land surface data, 'spin-up'), and provide Jupyter notebooks with example python code to plot some input data and model output.</p>
+<p><img alt="Architecture" src="img/architecture.svg" /></p>
+<p><em>Illustration of the software architecture. Colored boxes are folders mounted to the container. The model and the API manage the blue ones, and yellow boxes are created by the code maintainers—an asterisk indicates the folder is optional. After <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide/#0-prerequisites-first-time-setup">first-time installation and setup</a>, users can access the Web User Interface (UI) and Jupyter server. The UI uses and Application Programming Interface (API) to send commands between the users and Docker containers.</em></p>
+<h3 id="api">API</h3>
+<p>An Application Programming Interface (API) is a set of tools that enables the end-users to interact with a program. The interaction happens by receiving some commands from the users, performing some actions if necessary, and then sending back some results. We created an HTTP API for the model using FastAPI, a popular high-performance framework for Python. It means the API can be used through any medium that can send and receive HTTP requests, e.g., browsers and libraries like python-requests. FastAPI generates a REST API based on <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI specifications</a>. It also automatically generates documentation for the API from the docstrings of the python functions, which includes a description of the inputs and outputs and examples. The documentation is interactive and can be accessed through its web-based user interface.</p>
+<p>The Platform API is responsible for:</p>
+<ul>
+<li>Getting a copy of the model code (via version control or by downloading the source code).</li>
+<li>Setting up the model's external components.</li>
+<li>Overwriting parts of the model with the specified code in <code>resources/overwrites</code> (optional).</li>
+<li>Defining the machine config, i.e., the Docker container, for the model (see <code>resources/dotcime</code>).</li>
+<li>Creating, configuring, and running cases.</li>
+<li>Serving inputs and outputs of the created cases.</li>
+</ul>
+<p>The API code can be found at <a href="https://github.com/NorESMhub/ctsm-api">https://github.com/NorESMhub/ctsm-api</a>.</p>
+<h3 id="docker-containers-and-model-dependencies">Docker containers and model dependencies</h3>
+<p>CTSM and NorESM depend on many external libraries, which can be challenging to install on a personal computer. The difficulties can be due to a lack of cross-platform support, version conflict with existing libraries, or system architecture.</p>
+<p>One solution to this is containerization, which is the process of packaging and distributing software in a way that can be run on various platforms. Containers use Operating System-level virtualization. This allows efficient use of resources while isolating the software from other processes running on the host system. All the requirements for packaged software are included in the container. We used <a href="https://www.docker.com/">Docker</a> for this purpose. Docker is a widely used and popular containerization tool. </p>
+<p>The packaged software is called an Image. When a Docker Image is run, it is called a Container, i.e., a running instance of the software. The main Image created for the Platform is <a href="https://github.com/NorESMhub/ctsm-api/pkgs/container/ctsm-api">ctsm-api</a>. It contains all the dependencies for the model, the scripts to initialize and configure the model, and the API code that provides access to the model. The Image can be configured via an environment file (<code>.env</code>), which gives control to users to adjust some initial properties of the model and the Platform, e.g., what version of the model to use and what drivers should be enabled.</p>
+<p>In order to allow easier maintenance and better use of resources, some dependencies are not included in the Image. For example, the message queuing broker (RabbitMQ) required by the API, which is needed to manage asynchronous communications between the model and the API, is not included. This service can be added by using the official <a href="https://hub.docker.com/_/rabbitmq">RabbitMQ Docker Image</a>. Keeping this service out of the Image lets more savvy users pick a different message broker for their use cases.</p>
+<p>To address the needs of non-technical users, we have taken care of the extra configurations for the containers by using an orchestration tool called <a href="https://docs.docker.com/compose/overview/">Docker Compose</a>. Docker Compose is a wrapper around Docker, which allows configuring and organizing all the containers in a single <code>YAML</code> file.</p>
+<p>In addition to the previously mentioned Images, we have included an Image for Jupyter Server and one for our Web User Interface (UI) for <code>ctsm-api</code>.</p>
+<p>The reason for using a container is that the NorESM model code is not an app but rather a collection of code, and that code needs to be modified in order to run on a new machine. To make the model more like a downloadable app for any machine (e.g. your mac/windows/linux laptop/pc), we put the code in a Docker container that works as a mini-machine within your machine (laptop/pc). A <a href="https://docs.docker.com/get-started/overview/" title="a text document that contains all the commands a user could call on the command line to assemble an image">Docker file</a> is used to enable simulations on any machine, such as a laptop or an HPC cluster. When we release a new version, we have to build a container using this Docker file. Users can then download the dontainer and run simulations there. For details on the docker file and how to modify or update it, look to <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/tree/main/docs/docker.md">this description on GitHub</a></p>
+<h3 id="web-user-interface">Web User Interface</h3>
+<p>Users can set up cases, change some model settings, and run simulations via the Web User Interface. Once the platform is correctly up and running, the UI will be available at <a href="localhost:8080">localhost:8080</a>. The web UI is an application that represents some configurable parameters of the model in a user-friendly way. It comes with built-in validations and error handling for the acceptable values of the parameters. Its goal is to streamline the process of editing a case and help users focus on the scientific aspects of their simulations rather than on the technical configuration.</p>
+<p>The Web User Interface (UI) code can be found at <a href="https://github.com/NorESMhub/fates-platform">https://github.com/NorESMhub/fates-platform</a>. The UI is created using <a href="https://www.typescriptlang.org/">Typescript</a>, a superset of JavaScript language, with the <a href="https://reactjs.org/">React</a> framework.</p>
+<h3 id="jupyter-server">Jupyter Server</h3>
+<p>The included Jupyter Server Image comes with some commonly used python libraries for data analysis. The list of bundled libraries is available at https://github.com/MetOs-UiO/fates_platform_ecological_climatology/blob/main/docker/jupyter/Dockerfile#L7.</p>
+<p>When the platform is up and running, the Jupyter server is available at <a href="localhost:8888">localhost:8888</a>. Example and tutorial Jupyter notebooks are stored in  <code>/notebooks</code>. </p>
 <h3 id="model-versions">Model versions</h3>
 <p>The platform is built to run the land model (CLM) with the Norwegian Earth System Model (as opposed to e.g. CESM which also uses the same land model). The versions of FATES and CLM therefore have to be in line with stable NorESM versions. NorESM is taken in to the platform using the <code>noresm_landsites</code> branch in the <a href="https://github.com/NorESMhub/NorESM/tree/noresm_landsites">NorESMhub/NorESM repository</a>. </p>
-<h4 id="release-010-dev">Release <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/releases">0.1.0-dev</a></h4>
+<p><em>Table 1: Model versions</em></p>
 <table>
 <thead>
 <tr>
@@ -188,11 +214,11 @@
 <tbody>
 <tr>
 <td>NorESM</td>
-<td></td>
+<td>https://github.com/NorESMhub/NorESM/tree/release-nlp0.1.0</td>
 </tr>
 <tr>
 <td>CLM</td>
-<td>ctsm5.1.dev026</td>
+<td><a href="https://github.com/ESCOMP/CTSM/tree/ctsm5.1.dev038">ctsm5.1.dev038</a></td>
 </tr>
 <tr>
 <td>FATES</td>
@@ -200,7 +226,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="compsets">Compsets</h3>
+<h3 id="input-data">Input data</h3>
+<p>Running the model requires specifying compsets, atmospheric forcing, land surface parameters, and sometimes spin-up to get realistic simulations. </p>
+<p>The versioned input data are <a href="https://ns2806k.webs.sigma2.no/EMERALD/EMERALD_platform/inputdata_fates_platform/">in a shared folder on sigma2.no</a>. The .tar files are compressed and can be opened as a folder with e.g. 7-zip by right-clicking and choosing 'open archive', and used after extracting (unzipping). The data files are stored in <a href="https://www.unidata.ucar.edu/software/netcdf/">.nc (NetCDF)</a> format, which can be viewed using <a href="https://www.giss.nasa.gov/tools/panoply/">Panoply</a>, or packages in Python or <a href="https://cran.r-project.org/web/packages/ncdf4/index.html">R</a>. The output data from simulations are stored in the same format but in the specific case folder.</p>
+<h4 id="component-sets-compsets">Component sets (compsets)</h4>
 <p>Short for component sets, compsets specify which component models are used as well as specific settings for forcing scenarios and physics options. NorESM consists of several sub-models (components) for the atmosphere, land, ocean, etc, plus some common infrastructure code that allows the components to pass information back and forth at certain time steps. Component sets have a short name and a longer name with abbreviations denoting the components included. See more in the <a href="https://escomp.github.io/ctsm-docs/versions/release-clm5.0/html/users_guide/setting-up-and-running-a-case/choosing-a-compset.html">CLM user guide</a>.</p>
 <p>The compset is specified by combining components in this order: atm, lnd, ice, ocn, river, glc, and wave. Each component model version may be "active," "data," "dead," or "stub". Stub components are used instead of active to save computation time and input requirements when that component is not needed for the model configuration. For instance, the active land component forced with atmospheric data, does not need ice, ocn, or glc components to be active and can replace them with stubs. </p>
 <ul>
@@ -218,17 +247,12 @@
 <li>GLC: Land Ice, here SGLC stub glacier (land ice) component</li>
 <li>WAV: Wave, here SWAV stub wave component </li>
 </ul>
-<p>The compset longname defines it in the code with the following notation: <code>TIME_ATM[%phys]\_LND[%phys]\_ICE[%phys]\_OCN[%phys]\_ROF[%phys]\_GLC[%phys]\_WAV[%phys]</code>. Currently, we only support the following compsets using FATES:</p>
+<p>The compset longname defines it in the code with the following notation: <code>TIME_ATM[%phys]\_LND[%phys]\_ICE[%phys]\_OCN[%phys]\_ROF[%phys]\_GLC[%phys]\_WAV[%phys]</code>. Currently, we only support the following compset using FATES:</p>
 <blockquote>
 <p>2000_DATM%1PTGSWP3_CLM50%FATES_SICE_SOCN_MOSART_SGLC_SWAV</p>
 </blockquote>
 <p>More compsets for pre-industrial or future simulations require additional input data and may be included in future versions of the platform. For now, if you need other compsets you need to dig deeper into the CLM technical documentation and provide the necessary input data and code changes yourself. </p>
-<hr />
-<h2 id="input-data">Input data</h2>
-<p>Running the model requires specifying compsets, atmospheric forcing, land surface parameters, and spin-up to get realistic simulations. </p>
-<p>The input data are <a href="https://ns2806k.webs.sigma2.no/EMERALD/EMERALD_platform/inputdata_fates_platform/">here</a>, with a <a href="https://ns2806k.webs.sigma2.no/EMERALD/EMERALD_platform/inputdata_fates_platform/readme.inpudata_emerald_platform">readme</a> file with further detail. The .tar files are compressed, and can be opened as a folder with e.g. 7-zip by right-clicking and choosing 'open archive', and used after extracting (unzipping). The data files are stored in <a href="https://www.unidata.ucar.edu/software/netcdf/">.nc (NetCDF)</a> format, which can be viewed using <a href="https://www.giss.nasa.gov/tools/panoply/">Panoply</a>, or packages in Python or <a href="https://cran.r-project.org/web/packages/ncdf4/index.html">R</a>. The output data from simulations are stored in the same format.</p>
-<p>The input data .tar file contains three folders: (1) 'shared' domain files with gridcell longitude, latitude, and area; (2) <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#surface-data">land (=lnd)</a> surface data, and (3) <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#atmospheric-forcing">atmosphere (=atm)</a> data. The input data are <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">site</a>-specific. </p>
-<h3 id="atmospheric-forcing">Atmospheric forcing</h3>
+<h4 id="atmospheric-forcing">Atmospheric forcing</h4>
 <p>Atmospheric forcing data drives the modelled climate using a time series of climatic variables. Downloadable data products exist, but is often on too coarse scales for realistic single-point simulations. Here is a list of atmospheric forcing variables used in CLM:</p>
 <ul>
 <li>Incident solar radiation (FSDS),  W/m2</li>
@@ -250,7 +274,7 @@
 </li>
 </ul>
 <p>If you have your own data, you can replace the default input files with your own. <em>under construction: Instruction for how to do this</em>. Make sure the format and units are the exact same, otherwise the model will not be able to use them. For more information on using custom input to CLM, see the <a href="https://www.cesm.ucar.edu/models/cesm1.0/clm/models/lnd/clm/doc/UsersGuide/x9798.html">CLM documentation</a></p>
-<h3 id="surface-data">Surface data</h3>
+<h4 id="surface-data">Surface data</h4>
 <p>Surface data contains information the model needs about the land surface, such as land use trajectories, soil properties, vegetation parameters, and <a href="https://en.wikipedia.org/wiki/Albedo">albedo</a>. Here are some exaples of what the input data .tar contains: </p>
 <ul>
 <li>'firedata'<ul>
@@ -280,166 +304,311 @@
 <p>For the <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">Vestland climate grid sites</a>, surface data has been created from raw data sets, using <a href="https://github.com/huitang-earth/NLP_prep/blob/main/create_inputdata.sh" title="a script in Hui's repository for preparing input data">this script</a>. There are publicly available data products that could be downloaded and extracted for the nearest model gridcell, given points coordinates, that contain all the necessary surface data. We have not used this; our surface data is interpolated from raw data sets of better resolution. This data should be more accurate than the alternative data products. </p>
 <p>If you have your own data, you can replace the default input files with your own. <strong><em>under construction: Instruction for how to do this</em></strong>. Make sure the format and units are the same, otherwise the model will not be able to use them. </p>
 <p>For more information on using custom input to CLM, see the <a href="https://www.cesm.ucar.edu/models/cesm1.0/clm/models/lnd/clm/doc/UsersGuide/x9798.html">CLM documentation</a></p>
-<h3 id="spin-up">Spin-up</h3>
-<p>To get realistic simulations, the model needs to run for a while to reach a state of equilibrium under the applied forcing. Starting the model from "bare ground", the climate is not in equilibrium, there is no or only unrealistic soil, and the model needs time to grow and kill vegetation to get appropriate soil properties and a stable climate. We provide "restart" files for our sites with the following spin-up phase settings:</p>
-<ul>
-<li><em>under construction</em></li>
-</ul>
+<h4 id="spin-up">Spin-up</h4>
+<p>To get realistic simulations, the model needs to run for a while to reach a state of equilibrium under the applied forcing. Starting the model from "bare ground" (= run type startup), the model needs time to grow and kill vegetation to get appropriate soil properties, Plant Functional Type distribution, and a stable climate. </p>
 <hr />
-<h2 id="running-simulations">Running simulations</h2>
-<p>To run simulations, see the <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide">user guide</a>.</p>
-<p>To run a simulation, you need to set up a <a href="https://esmci.github.io/cime/versions/master/html/glossary/index.html#term-case-CASE" title="An instance of a model simulation. A case is defined by a component set, a model grid, a machine, a compiler, and any other additional customizations.">case</a> which tells the model how to run. A case can be run several times, or stopped and started again. The NorESM platform provides a <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#settings-file">settings file</a> that will set some basic information, and scripts to simplify running the case(s). Under <code>NorESM_LandSites_Platform/landsites_tools/simulation/</code> there are python scripts <code>make_cases.py</code> and <code>run_cases.py</code>. These scripts set up a simulation case directory and creates, builds and downloads <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#input-data" title="atmospheric forcing, land surface data">input data</a> for the model. For more detailed information on what goes on in CLM and its coupler (which connects CLM to other model components), see this <a href="https://esmci.github.io/cime/versions/master/html/users_guide/index.html">CIME user guide</a>, but note that the NorESM modelling platform uses these commands and scripts more indirectly. The settings file and python scripts combine several of these options and commands to simplify the process of running simulations.</p>
-<h3 id="settings-file">Settings file</h3>
-<p>Users can customise model settings with a settings file created through the container -- see the <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide">user guide</a>.</p>
-<p>All required information to prepare and run CLM-FATES cases for the available Norwegian land sites is provided via a <code>settings.txt</code> file. A template, which also serves as the default settings if no changes are made, is stored under <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/tree/main/landsites_tools">~/NorESM_LandSites_Platform/landsites_tools/</a>. </p>
-<p>The settings file has the following contents:</p>
+<h2 id="model-parameters-and-sites-configuration">Model parameters and sites configuration</h2>
+<p>To be able to set model parameters in the web UI, some configuration files are needed. Both model parameters and sites configurations are provided by the maintainers as JSON files in <code>resources/config/variables_config.json</code> and <code>resources/config/sites.json</code>. They can be modified by users who are familiar with the model. </p>
+<p>The model parameters file contains a list of JSON objects. Attributes of each object are described in table [TODO: X2]. Note that not all types of variables accepted by the model are supported in the user interface at this point.</p>
+<p>The tables below describe how these configuration files work and handle the model settings users can change in the UI.</p>
+<p><em>Table 2: Model parameter attributes, compare to the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/blob/main/resources/config/variables_config.json">variables_config.json</a> file in <code>/resources/config</code></em></p>
 <table>
 <thead>
 <tr>
-<th>setting</th>
-<th>description</th>
+<th>Attribute</th>
+<th>Type</th>
+<th>default</th>
+<th>Required</th>
+<th>Scope</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>dir_cases</td>
-<td>cases root folder, absolute or relative to project dir</td>
+<td>name</td>
+<td>string</td>
+<td>-</td>
+<td>yes</td>
+<td>Model</td>
+<td>Name of the variable exactly as it should be passed to the model.</td>
 </tr>
 <tr>
-<td>dir_clm_input</td>
-<td>clm input root folder, absolute or relative to project dir</td>
+<td>label</td>
+<td>string</td>
+<td>-</td>
+<td>no</td>
+<td>UI</td>
+<td>A human-readable label describing the parameter.</td>
 </tr>
 <tr>
-<td>dir_output</td>
-<td>output root folder, absolute or relative to project dir</td>
+<td>category</td>
+<td>string</td>
+<td>-</td>
+<td>yes</td>
+<td>API</td>
+<td>One of the following: <code>ctsm_xml</code>, <code>user_nl_clm</code>, <code>user_nl_clm_history_file</code>, <code>fates</code>, <code>fates_param</code>.</td>
 </tr>
 <tr>
-<td>start_time</td>
-<td>at what time should simulation start? Format yyyy-mm-dd hh:mm, default 2000-01-01</td>
+<td>type</td>
+<td>string</td>
+<td>-</td>
+<td>yes</td>
+<td>Model, API</td>
+<td>One of the following: <code>char</code>, <code>integer</code>, <code>float</code>, <code>logical</code>, <code>date</code>.</td>
 </tr>
 <tr>
-<td>end_time</td>
-<td>at what time should simulation stop? Format yyyy-mm-dd, default 2001-01-01</td>
+<td>description</td>
+<td>string</td>
+<td>-</td>
+<td>no</td>
+<td>UI</td>
+<td>Detailed description of the parameter.</td>
 </tr>
 <tr>
-<td>sites2run</td>
-<td>which <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">sites</a> should be simulated? Make sure the names are correct! Fetches from data/.dicts/sites.json. Default is ALP1 and ALP2</td>
+<td>readonly</td>
+<td>boolean</td>
+<td>false</td>
+<td>no</td>
+<td>UI</td>
+<td>Whether the parameter can be edited by the user.</td>
 </tr>
 <tr>
-<td>type_run</td>
-<td>What type of <a href="">model run</a> do you want? startup, hybrid, branch, restart. Default is startup</td>
+<td>hidden</td>
+<td>boolean</td>
+<td>false</td>
+<td>no</td>
+<td>UI</td>
+<td>Whether the parameter should be hidden from the user.</td>
 </tr>
 <tr>
-<td>type_model</td>
-<td>CLM-SP, CLM-BGC, CLM-FATES, FATES-SP, FATES-nocomp, FATES-hydro. Default is CLM-SP</td>
+<td>allow_multiple</td>
+<td>boolean</td>
+<td>false</td>
+<td>no</td>
+<td>API, UI</td>
+<td>Whether the parameter accepts multiple values.</td>
 </tr>
 <tr>
-<td>initial_file</td>
-<td>initial conditions (empty: cold start)</td>
+<td>allow_custom</td>
+<td>boolean</td>
+<td>false</td>
+<td>no</td>
+<td>UI</td>
+<td>Whether users can enter values other than the ones provided as choices (only applies to those parameters with <code>choices</code> in their <code>validation</code> attribute.</td>
 </tr>
 <tr>
-<td>frequency_output</td>
-<td>At what frequency should output be stored? Monthly/daily/hourly. Default is monthly, which gives all variables</td>
+<td>validation</td>
+<td>Validation object</td>
+<td>-</td>
+<td>no</td>
+<td>API, UI</td>
+<td>See <code>Validation</code> table below ([TODO: X3]).</td>
 </tr>
 <tr>
-<td>variables_output</td>
-<td>which output variables to store. <a href="https://www.cesm.ucar.edu/models/cesm1.2/clm/models/lnd/clm/doc/UsersGuide/history_fields_table_40.xhtml">CLM has many more to choose from</a></td>
+<td>default</td>
+<td>integer, float, string, boolean</td>
+<td>-</td>
+<td>no</td>
+<td>API</td>
+<td>A default value to use. It must match the type specified by the <code>type</code> attribute. If <code>allow_multiple</code> is set to <code>true</code>, it must be a list of values.</td>
 </tr>
 <tr>
-<td>variables_plot</td>
-<td>Which variables to plot</td>
+<td>placeholder</td>
+<td>string</td>
+<td>-</td>
+<td>no</td>
+<td>UI</td>
+<td>A placeholder value to show to the user. This value is not actually applied if no value is entered by the user.</td>
 </tr>
 <tr>
-<td>frequency_plot</td>
-<td>Timestep of plotting. Default daily.</td>
-</tr>
-<tr>
-<td>vegetation_types_FATES</td>
-<td>to be implemented</td>
-</tr>
-<tr>
-<td>output_groups</td>
-<td>to be implemented</td>
+<td>append_input_path</td>
+<td>boolean</td>
+<td>false</td>
+<td>no</td>
+<td>API</td>
+<td>Whether to adjust a path value based on its relative location in the input folder.</td>
 </tr>
 </tbody>
 </table>
-<p>The last lines (not shown here) also specify some paths that users should not touch. Running the make_cases script will fill those in automatically. If you are changing the settings file manually, be careful with formatting! Upper/lowercase, spaces and symbols need to be correct for it to work.</p>
-<h4 id="model-run-types">model run types</h4>
+<p>Adjusted values can be validated using the <code>validation</code> attribute. Currently, only the validators described in table 3 are supported.</p>
+<p><em>Table 3: validation attributes to define which values are accepted for each model parameter</em></p>
 <table>
 <thead>
 <tr>
-<th>model run type</th>
-<th>description</th>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>startup</td>
-<td>a 'cold' start from bare ground. The vegetation and climate is not in equilibrium and the model will not produce realistic output. No <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#spin-up">spin-up</a> is included. Use this mode for quick testing, or for making your own spin-up.</td>
+<td>min</td>
+<td>float</td>
+<td>A minimum value for numeric attributes.</td>
 </tr>
 <tr>
-<td>hybrid</td>
-<td>the model is initialized similar to a startup run, but uses initialization datasets from a previous case. Suitable when you already have good spin-up files and want a more realistic simulation.</td>
+<td>max</td>
+<td>float</td>
+<td>A maximum value for numeric attributes.</td>
 </tr>
 <tr>
-<td>branch</td>
-<td>the model is initialized using a consistent set of restart files from a previous run. The case name is generally changed for a branch run, although it does not have to be. Branch runs are suitable for sensitivity or parameter studies, or when settings for history file output streams need to be modified while still maintaining bit-for-bit reproducibility.</td>
+<td>pattern</td>
+<td>string</td>
+<td>A regular expression to match the value against.</td>
 </tr>
 <tr>
-<td>restart</td>
-<td>continues running an existing case after it has been stopped.</td>
+<td>pattern_error</td>
+<td>string</td>
+<td>A custom error message for values not matching the <code>pattern</code> attribute.</td>
+</tr>
+<tr>
+<td>choices</td>
+<td>[integer, float, string, boolean]</td>
+<td>A list of choices for users to select from.</td>
 </tr>
 </tbody>
 </table>
-<h4 id="model-types">model types 🚧</h4>
-<p>This setting is where users can change the model <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#compsets">component set</a>. 🚧 Currently, only the CLM-FATES option works and the rest are placeholders for future developments.</p>
+<p>Sites in <code>resources/config/sites.json</code> are described as <a href="https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.2">GeoJSON points</a>. The site map in the web UI draws on these site definitions. Their configuration is set in the <code>properties</code> attribute of the GeoJSON object, as described in table 4.</p>
+<p><em>Table 4: Site geoJSON properties, compare with the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/blob/main/resources/config/sites.json">sites.json</a> file in <code>/resources/config</code></em></p>
 <table>
 <thead>
 <tr>
-<th>model run type</th>
-<th>description <em>under construction</em></th>
+<th>Attribute</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CLM-SP</td>
-<td>satellite phenology.</td>
+<td>name</td>
+<td>string</td>
+<td>yes</td>
+<td>Name of the site.</td>
 </tr>
 <tr>
-<td>CLM-BCG</td>
-<td>biogeochemistry</td>
+<td>compset</td>
+<td>string</td>
+<td>yes</td>
+<td>The component set to use with the model.</td>
 </tr>
 <tr>
-<td>CLM-FATES</td>
-<td>FATES vegetation</td>
+<td>res</td>
+<td>string</td>
+<td>yes</td>
+<td>The resolution/grid to use with the model.</td>
 </tr>
 <tr>
-<td>FATES-SP</td>
-<td>FATES but with satellite phenology</td>
-</tr>
-<tr>
-<td>FATES-nocomp</td>
-<td>FATES without competition</td>
-</tr>
-<tr>
-<td>FATES-hydro</td>
-<td>FATES with different hydrology</td>
+<td>config</td>
+<td>[Config object]</td>
+<td>no</td>
+<td>Config is an object with two keys: <code>name</code> and <code>value</code>.<br/>The former must point to a parameter in <code>resources/config/variables_config.json</code>.<br/>The latter must be a valid value for that parameters.<br/>These are used as default values for the given parameter for the site.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="make_casespy">make_cases.py</h3>
-<p>This python script creates, builds, and sets up CTSM cases for predefined or custom <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">site locations</a>. It is either using the simulation options specified in a 'settings.txt' file or asks for interactive command line input to create one. Input data is automatically downloaded unless custom input data has been added. When making a new case, it first creates a case directory containing the scripts and XML files to configure a case. Then, it creates scripts needed to run the model along with <a href="https://esmci.github.io/cime/versions/master/html/glossary/index.html#term-user-namelist-files-CASEROOT-user_nl_" title="Files containing input parameters for CLM. User modifications for a given case can be added in these files.">namelist files</a>. Finally, it <a href="https://en.wikipedia.org/wiki/Compiler" title="translate source code from a human-readable programming language to a machine-readable language to create an executable program">compiles</a> the model and builds the executable file from which the case is run. </p>
-<p>The <code>make_cases.py</code> script uses helper scripts stored in the <code>utils/</code> folder and commands experienced CLM users will be familiar with, namely <code>create_newcase</code>, <code>case.setup</code> and <code>case.build</code>.</p>
-<h3 id="run_casespy">run_cases.py</h3>
-<p>This python script runs previously built cases made with <code>make_cases.py</code>. The respective paths need to be defined in a 'settings.txt' file. The model output files will be created in the <code>data/output/CASE_NAME</code> directory by default, but a different path can be specified. Depending on the length of simulation, and computational resources available, this can take some time. The script calls on the <code>case.submit</code> command that experienced CLM users will be familiar with. </p>
+<hr />
+<h2 id="running-simulations-in-the-web-user-interface">Running simulations in the web User Interface</h2>
+<p>See the <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide">user guide</a> for instructions on running simulations. Advanced users who want to change additional or different model parameters or settings can do so manually </p>
+<h3 id="create-case">Create case</h3>
+<p>To run a simulation, you need to set up a <a href="https://esmci.github.io/cime/versions/master/html/glossary/index.html#term-case-CASE" title="An instance of a model simulation. A case is defined by a component set, a model grid, a machine, a compiler, and any other additional customizations.">case</a> which tells the model how to run. A case can be run several times, or stopped and started again. For more detailed information on what goes on in CLM and its coupler (which connects CLM to other model components), see this <a href="https://esmci.github.io/cime/versions/master/html/users_guide/index.html">CIME user guide</a>, but note that the NorESM modelling platform uses these commands and scripts more indirectly. </p>
+<p>In the web UI, once you have chosen a site you get options to download site data (optional) and to create a new case. When you create a new case, you can change some model parameters as defined in the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/blob/main/resources/config/variables_config.json">variables_config.json</a> file described above. There are more customisation options for the models that advanced users can change manually, but for simplicity and explainability we have restricted the options in the UI and grouped them like this:</p>
+<ol>
+<li><a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#run-environment-settings">Run environment</a></li>
+<li><a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#clm-namelist-simulation-settings">CLM namelist</a></li>
+<li><a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#history-files">History Files</a></li>
+<li><a href="https://noresmhub.github.io/NorESM_LandSites_Platform/#fates-simulation-settings">FATES</a></li>
+</ol>
+<h4 id="run-environment-settings">Run environment settings</h4>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>values</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CALENDAR</td>
+<td>No Leap, Gregorian</td>
+<td>Should the simulation follow the Gregorian (realistic) or simplified calendar without leap years? This option should normally follow the calendar the input data is provided in.</td>
+</tr>
+<tr>
+<td>DATM_CLMCEP_YR_START</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RUN_TYPE</td>
+<td>startup, hybrid, branch, restart</td>
+<td><em>startup</em>: a 'cold' start from bare ground. The vegetation and climate is not in equilibrium and the model will not produce realistic output. No spin-up included. Use this mode for quick testing, or for making your own spin-up. <em>hybrid</em>: the model is initialized similar to a startup run, but uses initialization datasets from a previous case. Suitable when you already have good spin-up files and want a more realistic simulation. <em>branch</em>: the model is initialized using a consistent set of restart files from a previous run. The case name is generally changed for a branch run, although it does not have to be. Branch runs are suitable for sensitivity or parameter studies, or when settings for history file output streams need to be modified while still maintaining bit-for-bit reproducibility. <em>restart</em>: continues running an existing case after it has been stopped.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="clm-namelist-simulation-settings">CLM namelist simulation settings</h4>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>values</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="history-files">History Files</h4>
+<p>By default, the model records output in one tape (hist_fincl1) as one (hist_mfilt=1) average (hist_avgflag_pertape=A) monthly (hist_nhtfrq=0) value, for a subset of variables (Active=T in <a href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/setting-up-and-running-a-case/master_list_fates.html" title="Full list of possible CTSM History Fields with FATES">this list</a>, in a long-lat grid (hist_dov2xy=TRUE). If you want output to be recorded for <a href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/setting-up-and-running-a-case/master_list_fates.html" title="Full list of possible CTSM History Fields with FATES">additional variables</a> or at different time steps, you can modify the first column or fill in additional columns. Each column corresponds to a history tape, that is a series of files created for the simulation period. If you want to run the model without saving any output, set hist_mfilt=0 in the first column. By modifying additional columns,  you can add tapes (series of files) with with e.g. different output variables recorded at its maximum value per day and in a long string instead of in the default lat-lon grid (some vegetation demographic output is only accessible in that format).</p>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>values</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="fates-simulation-settings">FATES simulation settings</h4>
+<p>Users can remove or modify Plant Functional Types by checking/unchecking PFTs and typing in custom values for a subset of parameters. The full list of parameters is in the <a href="https://github.com/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl">FATES model code</a>.</p>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>values</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="running-and-editing-simulations">Running and editing simulations</h3>
+<p>Once a case had been created and is ready, you can look at the model settings is can be run and copied/edited using the Edit button.</p>
 <hr />
 <h2 id="postprocess">Postprocess</h2>
 <h3 id="output-files">output files</h3>
-<p>Output is stored in <a href="https://www.unidata.ucar.edu/software/netcdf/">.nc (NetCDF)</a> format, which can be viewed using Panoply, or packages in Python or <a href="https://cran.r-project.org/web/packages/ncdf4/index.html">R</a></p>
-<h3 id="history-variables">history variables</h3>
-<p>Each output .nc file contains information for several history variables, such as ...<em>under construction</em></p>
-<h3 id="plotting">plotting</h3>
-<p>Suggestions for plotting output are given in a Jupyter notebook in the repository under the <code>/notebooks</code> directory. In future versions, we hope to add more postprocessing and plotting functionality.</p>
+<p>Output is stored in <a href="https://www.unidata.ucar.edu/software/netcdf/">.nc (NetCDF)</a> format, which can be viewed using Panoply, or packages in Python or <a href="https://cran.r-project.org/web/packages/ncdf4/index.html">R</a>. From the UI, when a case has finished successfully you can download the output or simply open the Jupyter server (at localhost:8888) and work with the output there, using e.g. the provided notebook in the tutorials folder.</p>
 <hr />
 <h2 id="versions">Versions</h2>
 <p>Platform versions follow standard numbering, and releases below 1 should be considered unstable and preliminary. </p>
@@ -503,5 +672,5 @@
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2022-05-10 13:14:01.383276+00:00
+Build Date UTC : 2022-06-22 13:37:15.525950+00:00
 -->

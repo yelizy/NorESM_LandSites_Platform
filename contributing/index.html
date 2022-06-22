@@ -60,6 +60,10 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../implementation/">Implementation</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
                     </li>
                 </ul>
@@ -69,6 +73,24 @@
     <li class="toctree-l2"><a class="reference internal" href="#how-to-contribute-to-the-code">How to contribute to the code</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-to-contribute-to-the-documentation">How to contribute to the documentation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-of-conduct">Code of conduct</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#our-pledge">Our Pledge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#our-standards">Our Standards</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scientific-use-and-publication-ethics">Scientific Use and Publication Ethics</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enforcement-responsibilities">Enforcement Responsibilities</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scope">Scope</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enforcement">Enforcement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#attribution">Attribution</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -108,16 +130,15 @@
               
                 <h1 id="how-to-contribute-to-the-noresm-land-sites-platform">How to contribute to the NorESM land sites platform</h1>
 <p>The NorESM land sites platform is developed by a group of students, postdocs, and software engineers when we have the time or need certain functionalities. We welcome anyone to join us in developing new functionalities, using the platform, add to the documentation, and contribute to making this platform a dynamic and useful research and teaching tool. If you have questions, comments, or suggestions for improvements, please open an <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues">issue</a> in the repository. Any contributions and involvement in our community must be in line with our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/#code-of-conduct">Code of conduct</a>.</p>
-<h2 id="how-to-contribute-to-the-code">How to contribute to the code</h2>
+<h3 id="how-to-contribute-to-the-code">How to contribute to the code</h3>
 <p>We use our <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform">GitHub repository</a> for developing code. If you are new to working with Git and GitHub, you might like <a href="https://kbroman.org/github_tutorial/" title="a minimalist intro">this</a> or <a href="https://docs.github.com/en/get-started/quickstart/hello-world" title="GitHub's own tutorial">this</a> tutorial. </p>
-<p>The current version of the platform is kept in the <code>main</code> branch of the repository, and further development happens on the <code>platform_dev</code> branch. If you are developing code, please fork the repository and make your changes there before creating a pull request to the <code>platform_dev</code> branch when changes are complete. Testing can be done on different machines, such as an image on NREC, or using Saga, Fram, or even a local computer. </p>
+<p>The current version of the platform is kept in the <code>main</code> branch of the repository. Out first release tag of a functioning version (without GUI and API) is stored in the <code>archive</code> branch.  Further development happens on new branches and are merged into main with a pull request when the changes are functioning and tested. If you are developing code, please fork the repository and make your changes there before creating a pull request to the <code>platform_dev</code>.</p>
 <p>If your work touches the Docker container, see instructions in this <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/tree/main/docs/docker.md">readme file</a>.</p>
 <p>If you have questions or comments about the platform, please open an issue <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues">issue</a> in the repository.</p>
-<h2 id="how-to-contribute-to-the-documentation">How to contribute to the documentation</h2>
-<p>This documentation page is built using GitHub pages and <a href="https://www.mkdocs.org/">MkDocs</a>. </p>
-<p>To edit this documentation page, go to the main branch of the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform">github repository</a>, and navigate to the <code>docs/</code> folder. To edit the main documentation page, open the index.md file and make your changes, using Markdown syntax. Then commit (save changes) and start a pull request (to enter your changes into the repository -- must be approved by an admin). The same procedure can be used for this Contributing section from the contributing.md file, and so on.</p>
+<h3 id="how-to-contribute-to-the-documentation">How to contribute to the documentation</h3>
+<p>This documentation page is built using GitHub pages and <a href="https://www.mkdocs.org/">MkDocs</a>. To update it, change markdown files in /docs and commit the changes (or open a pull request). When the changes are saved, the page must be built again to fetch the changes by using the <code>mkdocs build</code> command in the top folder of the repository where mkdocs.yml tells github pages how to build the markdown files into a static webpage.</p>
 <hr />
-<h1 id="code-of-conduct">Code of conduct</h1>
+<h2 id="code-of-conduct">Code of conduct</h2>
 <h3 id="our-pledge">Our Pledge</h3>
 <p>We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation. We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.</p>
 <h3 id="our-standards">Our Standards</h3>
@@ -174,8 +195,6 @@ Consequence: A temporary ban from any sort of interaction or public communicatio
 Consequence: A permanent ban from any sort of public interaction within the community.</p>
 <h3 id="attribution">Attribution</h3>
 <p>This Code of Conduct is adapted from the <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct.html">Contributor Covenant, version 2.1</a>, and the <a href="https://github.com/NGEET/fates/blob/master/CODE_OF_CONDUCT.md">FATES Code of Conduct</a>.</p>
-<p>To edit this documentation page, go to the main branch of the <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform">github repository</a>, and navigate to the docs/ folder. To edit the main documentation page, open the index.md file and make your changes, using Markdown syntax. Then commit (save changes) and start a pull request (to enter your changes into the repository -- must be approved by an admin). The same procedure can be used for this Contributing section from the contributing.md file. </p>
-<p>NB! The <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/about/">About</a> section is mirrored from the main repository README.md file, and should <em>not</em> be touched from the docs/ folder. To make changes, edit the README file in the repository!</p>
               
             </div>
           </div>
