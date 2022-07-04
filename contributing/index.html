@@ -52,15 +52,11 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../land-sites/">NorESM land sites</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../land-sites/">Sites</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../user_guide/">User guide</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../implementation/">Implementation</a>
                     </li>
                 </ul>
                 <ul>
@@ -132,11 +128,11 @@
 <p>The NorESM land sites platform is developed by a group of students, postdocs, and software engineers when we have the time or need certain functionalities. We welcome anyone to join us in developing new functionalities, using the platform, add to the documentation, and contribute to making this platform a dynamic and useful research and teaching tool. If you have questions, comments, or suggestions for improvements, please open an <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues">issue</a> in the repository. Any contributions and involvement in our community must be in line with our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/#code-of-conduct">Code of conduct</a>.</p>
 <h3 id="how-to-contribute-to-the-code">How to contribute to the code</h3>
 <p>We use our <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform">GitHub repository</a> for developing code. If you are new to working with Git and GitHub, you might like <a href="https://kbroman.org/github_tutorial/" title="a minimalist intro">this</a> or <a href="https://docs.github.com/en/get-started/quickstart/hello-world" title="GitHub's own tutorial">this</a> tutorial. </p>
-<p>The current version of the platform is kept in the <code>main</code> branch of the repository. Out first release tag of a functioning version (without GUI and API) is stored in the <code>archive</code> branch.  Further development happens on new branches and are merged into main with a pull request when the changes are functioning and tested. If you are developing code, please fork the repository and make your changes there before creating a pull request to the <code>platform_dev</code>.</p>
+<p>The current version of the platform is kept in the <code>main</code> branch of the repository. Out first release tag of a functioning version (without GUI and API) is stored in the <code>archive</code> branch. Further development happens on indivudual forks and the <code>develop</code> branch and are merged into main with a pull request when the changes are functioning and tested. If you are developing code, please fork the repository and make your changes there before creating a pull request to the <code>develop</code> branch (or to <code>main</code> if you are confident the changes are complete and don't break anything).</p>
 <p>If your work touches the Docker container, see instructions in this <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/tree/main/docs/docker.md">readme file</a>.</p>
 <p>If you have questions or comments about the platform, please open an issue <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/issues">issue</a> in the repository.</p>
 <h3 id="how-to-contribute-to-the-documentation">How to contribute to the documentation</h3>
-<p>This documentation page is built using GitHub pages and <a href="https://www.mkdocs.org/">MkDocs</a>. To update it, change markdown files in /docs and commit the changes (or open a pull request). When the changes are saved, the page must be built again to fetch the changes by using the <code>mkdocs build</code> command in the top folder of the repository where mkdocs.yml tells github pages how to build the markdown files into a static webpage.</p>
+<p>This documentation page is built using GitHub pages and <a href="https://www.mkdocs.org/">MkDocs</a>. To update it, change markdown files in /docs and commit the changes (or open a pull request). When the changes are saved, the page must be built again to fetch the changes. This is done automatically when changes are pushed/committed to <code>main</code> by a github Action. Alternatively, you can build the pages by using the <code>mkdocs gh-deploy</code> command in the top folder of the repository where mkdocs.yml tells github pages how to build the markdown files into a static webpage. See the <a href="mkdocs gh-deploy">Mkdocs docs</a> for further info.</p>
 <hr />
 <h2 id="code-of-conduct">Code of conduct</h2>
 <h3 id="our-pledge">Our Pledge</h3>

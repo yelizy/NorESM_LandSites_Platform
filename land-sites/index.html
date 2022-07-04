@@ -9,7 +9,7 @@
   
   <link rel="canonical" href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>NorESM land sites - NorESM_LandSites_Platform documentation</title>
+  <title>Sites - NorESM_LandSites_Platform documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,7 +19,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "NorESM land sites";
+    var mkdocs_page_name = "Sites";
     var mkdocs_page_input_path = "land-sites.md";
     var mkdocs_page_url = "/NorESM_LandSites_Platform/land-sites/";
   </script>
@@ -52,23 +52,17 @@
                     </li>
                 </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">NorESM land sites</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Sites</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    <li class="toctree-l2"><a class="reference internal" href="#latice-mip-sites-nb-which-sites-to-include-in-published-release-is-uncertain-2022-june-30">LATICE-MIP sites 🚧 NB! Which sites to include in published release is uncertain (2022 June 30)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#vestland-climate-grid-seedclim-sites">Vestland climate grid (SeedClim) sites</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#latice-mip-sites-nb-these-coordinates-are-approximate-and-might-change-soon">LATICE-MIP sites 🚧 NB! These coordinates are approximate and might change soon.</a>
     </li>
     </ul>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../user_guide/">User guide</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../implementation/">Implementation</a>
                     </li>
                 </ul>
                 <ul>
@@ -100,7 +94,7 @@
     
       
     
-    <li>NorESM land sites</li>
+    <li>Sites</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -113,10 +107,7 @@
             <div class="section">
               
                 <h1 id="noresm-land-sites">NorESM land sites</h1>
-<p>This page will contain descriptions, meta data, and relevant reference hyperlinks
-for the included land sites.</p>
-<h2 id="overview">Overview</h2>
-<p>We currently support 18 sites: 12 <a href="https://betweenthefjords.w.uib.no/vestland-climate-grid/">Vestland climate grid</a> sites and 6 climate station sites of interest to the <a href="https://www.mn.uio.no/geo/english/research/groups/latice/">LATICE</a> group. These are locations where there are climate stations and ecological field experiments that make these sites of particular interest.</p>
+<p>We currently support 18 sites: 6 climate station sites of interest to the <a href="https://www.mn.uio.no/geo/english/research/groups/latice/">LATICE</a> group and 12 <a href="https://betweenthefjords.w.uib.no/vestland-climate-grid/">Vestland climate grid</a> sites. These locations are established study sites with climatic, and/or ecological data available. It is possible to add custom-made sites for somewhat experienced users.</p>
 <p><link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
@@ -128,148 +119,254 @@ for the included land sites.</p>
 
 <p>To plot site locations over a background map in R, you can also look at <a href="https://github.com/evalieungh/map_scripts">this repo</a></p>
 <hr />
-<h2 id="vestland-climate-grid-seedclim-sites"><a href="https://betweenthefjords.w.uib.no/vestland-climate-grid/">Vestland climate grid</a> (SeedClim) sites</h2>
+<h2 id="latice-mip-sites-nb-which-sites-to-include-in-published-release-is-uncertain-2022-june-30">LATICE-MIP sites 🚧 NB! Which sites to include in published release is uncertain (2022 June 30)</h2>
 <table>
 <thead>
 <tr>
 <th>Site name</th>
+<th>Station name</th>
 <th>Lon (X)</th>
 <th>Lat (Y)</th>
 <th>Elevation (Z)</th>
+<th>Data years</th>
+<th>Data types</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FIN</td>
+<td>finseflux</td>
+<td>7.527008533</td>
+<td>60.59383774</td>
+<td>1210</td>
+<td>Nov 2016 (?) - present</td>
+<td>Long wave in (LWin), Long wave out (LWout), Short wave in (SWin), Short wave out (SWout), turbulent heat fluxes, precipitation, temperature, humidity, pressure, wind speed and direction, snow depths (surveys and single point), H2O, CO2, soil temperature, soil vol. water, soil conductivity, drone images</td>
+<td>Above current climatic tree- and forest lines. Alpine ridges, wetlands, lakes, heather and snowbed vegetation.</td>
+</tr>
+<tr>
+<td></td>
+<td>hisaasen_upper</td>
+<td>12.25481033</td>
+<td>61.10516357</td>
+<td>680</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>hisaasen_lower</td>
+<td>12.25089836</td>
+<td>61.1115036</td>
+<td>640</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>iskoras</td>
+<td>25.29547425</td>
+<td>69.3408715</td>
+<td>360</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>aas</td>
+<td>10.781667</td>
+<td>59.660278</td>
+<td>93.2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>hurdal</td>
+<td>11.078142</td>
+<td>60.372387</td>
+<td>NA</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="vestland-climate-grid-seedclim-sites"><a href="https://betweenthefjords.w.uib.no/vestland-climate-grid/">Vestland climate grid</a> (SeedClim) sites</h2>
+<p>The Vestland climate grid, often called the SeedClim grid after the first major project that set it up, is a set of calcareous grassland sites across gradients of precipitation and temperature. The sites have been, and still are, host to many ecological reseach projects that study vegetation dynamics, plant interactions, functional traits and climate responses. Each site also has loggers for temperature and other climatic variables.</p>
+<p>Central data papers:</p>
+<ul>
+<li><a href="https://zenodo.org/record/6520022">FunCaB</a></li>
+<li>Coming soon: <a href="">INCLINE</a></li>
+<li>Coming soon: <a href="">SeedClim</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Site name</th>
+<th>Name</th>
+<th>Lon (X)</th>
+<th>Lat (Y)</th>
+<th>Elevation (Z)</th>
+<th>Data years</th>
+<th>Data types</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>ALP1</td>
+<td>Ulvehaugen</td>
 <td>8.12343</td>
 <td>61.0243</td>
 <td>1208</td>
+<td>2008-2022</td>
+<td>Vegetation surveys, vegetation demography, experimental treatments, weather data: [to be added]</td>
+<td>Above current climatic forest line. Semi-natural grassland, heather, ridges and snowbeds</td>
 </tr>
 <tr>
 <td>ALP2</td>
+<td>Laavisdalen</td>
 <td>7.27596</td>
 <td>60.8231</td>
 <td>1097</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 <tr>
 <td>ALP3</td>
+<td>Gudmedalen</td>
 <td>7.17561</td>
 <td>60.8328</td>
 <td>1213</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 <tr>
 <td>ALP4</td>
+<td>Skjellingahaugen</td>
 <td>6.41504</td>
 <td>60.9335</td>
 <td>1088</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 <tr>
 <td>SUB1</td>
+<td>Aalrust</td>
 <td>8.70466</td>
 <td>60.8203</td>
 <td>815</td>
+<td></td>
+<td></td>
+<td>Just below current climatic forest line.</td>
 </tr>
 <tr>
 <td>SUB2</td>
+<td>Hoegsete</td>
 <td>7.17666</td>
 <td>60.8760</td>
 <td>700</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 <tr>
 <td>SUB3</td>
+<td>Rambaera</td>
 <td>6.63028</td>
 <td>61.0866</td>
 <td>769</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 <tr>
 <td>SUB4</td>
+<td>Veskre</td>
 <td>6.51468</td>
 <td>60.5445</td>
 <td>797</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 <tr>
 <td>BOR1</td>
+<td>Fauske</td>
 <td>9.07876</td>
 <td>61.0355</td>
 <td>589</td>
+<td></td>
+<td></td>
+<td>Well below current climatic forest line.</td>
 </tr>
 <tr>
 <td>BOR2</td>
+<td>Vikesland</td>
 <td>7.16982</td>
 <td>60.8803</td>
 <td>474</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 <tr>
 <td>BOR3</td>
+<td>Arhelleren</td>
 <td>6.33738</td>
 <td>60.6652</td>
 <td>431</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 <tr>
 <td>BOR4</td>
+<td>Oevstedal</td>
 <td>5.96487</td>
 <td>60.6901</td>
 <td>346</td>
+<td>"</td>
+<td>"</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>The Vestland climate grid, often called the SeedClim grid after the first major project that set it up, is a set of calcareous grassland sites across gradients of precipitation and temperature. The sites have been, and still are, host to many ecological reseach projects that study vegetation dynamics, plant interactions, functional traits and climate responses. Each site also has loggers for temperature and other climatic variables: ...</p>
 <p><img alt="Vestland climate grid" src="https://betweenthefjords.w.uib.no/files/2020/08/grid.png" /></p>
-<p><em>Illustration from the SeedClim project: In the first project, turf squares (top soil, roots and whole plants) were cut out and physically transplanted to other sites, as indicated by the arrows in the top left corner. The vegetation in these turfs was carefully monitored over several years in their new locations, to see how and how quickly the plants adapted to a new environment.</em></p>
+<p><em>Figure 1: Illustration from the first project using the Vestland Climate Grid (SeedClim). Turf squares (top soil, roots and whole plants) were cut out and physically transplanted to other sites, as indicated by the arrows in the top left corner. The vegetation in these turfs was carefully monitored over several years in their new locations, to see how and how quickly the plants adapted to a new environment.</em></p>
+<p><img alt="Field work at Ulvehaugen = ALP1 site" src="https://tinyimg.io/i/q5EA7X5.jpg" /></p>
+<p><em>Figure 2: Field work at Ulvehaugen (ALP1). Ragnhild Gya and Joachim Töpper doing vegetation analysis in a 25x35cm metal frame. The small, white (<a href="https://tomst.com/web/en/systems/tms/tms-4/">Tomst</a>) loggers track temperature and soil moisture, and the small weather station (wooden pole to the right) tracks additional weather data. The fence keeps sheep and other animals away from the plots, but the vegetation is semi-natural after decades or centuries of grazing. The clear, hexagonal Open-Top Chambers experimentally heat up the vegetation.</em></p>
 <p><strong>Selected papers using the sites:</strong></p>
 <ul>
-<li>coming soon</li>
+<li>Töpper JP., Meineri E, Olsen SL, Rydgren K, Skarpaas O., &amp; Vandvik V. 2018. The devil is in the detail: non-additive and context-dependent plant population responses to increasing temperature and precipitation. Global Change Biology 24: 4657–4666. doi:10.1111/gcb.14336</li>
+<li>Althuizen IHJ, Lee H, Sarneel J, &amp; Vandvik V. 2018. Long-term climate regime modulates the impact of short-term climate variability on decomposition in alpine grassland soils. Ecosystems xx: xx-xx. https://doi.org/10.1007/s10021-018-0241-5</li>
+<li>Delnevo N, Petraglia A, Carbognani M, Vandvik V, &amp; Halbritter AH. 2018. Plastic and genetic responses to change in snowmelt time in reproductive phenology and growth of Ranunculus acris. Perspectives in Plant Ecology, Evolution and Systematics 30: 62-70</li>
+<li>Klanderud K, Meineri E, Töpper, J, Michel P, Vandvik V. 2017. Biotic interaction effects on seedling recruitment along bioclimatic gradients: testing the stress gradient hypothesis. Journal of Vegetation Science 28: 347-356</li>
+<li>Münzbergová Z, Hadincová V, Skálová H, &amp; Vandvik V. 2017. Genetic differentiation and plasticity interact along temperature and precipitation gradients to determine plant performance under climate change. Journal of Ecology 105: 1358–1373. DOI : 10.1111/1365-2745.12762</li>
+<li>Graae BJ, Vandvik V, Armbruster WS, Eiserhardt WL, Svenning JC, Hylander K, Ehrlén J, Speed JM, Klanderud K, Bråthen KA, Milbau A, Opedal ØH, Alsos IG, Ejrnæs R, Bruun HH, Birks HJB, Westergaard KB, Birks HH, &amp; Lenoir J. 2018. Stay or go – how topographic complexity influences alpine plant population and community responses to climate change. Perspectives in Plant Ecology, Evolution and Systematics 30: 41-50. DOI: 10.1016/j.ppees.2017.09.008 </li>
+<li>Vandvik V, Elven R, &amp; Töpper J. 2017. Seedling recruitment in subalpine grassland forbs: Predicting field regeneration behaviour from lab germination responses. Botany 95: 73–88.  dx.doi.org/10.1139/cjb-2016-0022.</li>
+<li>Guittar J, Goldberg DE, Klanderud K, Telford RJ, &amp; Vandvik V. 2016. Can trait patterns along gradients predict plant community responses to climate change? Ecology 97: 2791-2801.</li>
+<li>Olsen S. L., J. P. Töpper, O. Skarpaas, V. Vandvik, &amp; K. Klanderud. 2016. From facilitation to competition: temperature-driven shift in dominant plant interactions affects population dynamics in semi-natural grasslands. Global Change Biology 22: 1915-1926. doi: 10.1111/gcb.13241</li>
+<li>Skarpaas O., Meineri E.P., Bargmann T., Pötsch C., Spindelböck J.P., &amp; Vandvik V. 2016. Biomass partitioning in grassland plants along independent gradients in temperature and precipitation. Perspectives in Plant Ecology, Evolution and Systematics 19:1-11.</li>
+<li>Vandvik V., Klanderud K., Meineri E.P., Måren I.E., &amp; Spindelböck J.P. 2016. Seed banks are biodiversity reservoirs: Species-area relationships above vs. below ground. Oikos 125: 218-228. doi: 10.1111/oik.02022</li>
+<li>Klanderud K., Vandvik V., &amp; Goldberg D.E. 2015. The importance of biotic vs. abiotic drivers of local plant community composition along regional bioclimatic gradients. PLoS One 10(6): e0130205. doi:10.1371/journal.pone.0130205</li>
+<li>Tingstad L., Olsen S.L., Klanderud K., Vandvik V., &amp; Ohlson M.O. 2015. Temperature, precipitation and biotic interactions as determinants of tree seedling recruitment across the tree line ecotone. Oecologia 179: 599-608. doi:10.1007/s00442-015-3360-0</li>
+<li>Wasof S., Lenoir J., Aarrestad P.A., Alsos I.G., Armbruster W. S., Austrheim G., Bakkestuen V., Birks H.J.B., Bråthen K. A., Broennimann O., Brunet J., Bruun H. H., Dahlberg C. J., Diekmann M., Dullinger S., Dynesius M., Ejrnæs R., Gégout J-C., Graae B. J., Grytnes J-A., Guisan A., Hylander K., Jónsdóttir I. S., Kapfer J., Klanderud K., Luoto M., Milbau A., Moora M., Nygaard B., Odland A., Pauli H., Ravolainen V., Reinhardt S., Sandvik S. M., Schei F. H., Speed J. D. M., Svenning J-C., Thuiller W., Tveraabak L. U., Vandvik V., Velle L. G., Virtanen R., Vittoz P., Willner W., Wohlgemuth T., Zimmermann N. E., Zobel M., &amp; Decocq G. 2015. Disjoint populations of European vascular plant species keep the same climatic niches. Global Change Biology 24: 1401-1412. 10.1111/geb.12375</li>
+<li>Meineri E., Skarpaas O., Spindelböck J.S., Bargmann T., and Vandvik V. 2014. Direct and size-dependent climate effect on flowering performance in alpine and lowland herbaceous species. Journal of Vegetation Science 25: 275-278. DOI: 10.1111/jvs.12082</li>
+<li>Lenoir J., Graae B.J., Aarrestad, P.A., Alsos I.G., Armbruster S., Austrheim G., Bergendorff C., Birks H.J.B., Bråthen K.A., Brunet J., Bruun H.H., Dahlberg C., Decocq G., Diekmann M., Dynesius M., Ejrnæs R., Grytnes J.-A., Hylander K., Klanderud K., Luoto M., Milbau A., Moora M., Nygaard B., Odland A., Ravolainen V., Reinhardt S., Sandvik S., Schei F.H., Speed J., Tveraabak L., Vandvik V., Velle L.G., Virtanen R., Zobel M., Svenning J.-C. 2013. Strong local spatial buffering of climate-change impacts on species across Northern Europe. Global Change Biology 19: 1470-1481. DOI: 10.1111/gcb.12129. Highlighted by the editors in GCB.</li>
+<li>Meineri E., Spindelböck J.S., &amp; Vandvik V. 2013. Seedling emergence responds to the climate of both recruitment site and seed source - A climate change experiment combining transplant and gradient approaches. Plant Ecology 214:607-619. DOI: 10.1007/s11258-013-0193-y</li>
+<li>Spindelböck J.P., Cook Z., Daws M.I., Heegaard E., Måren I.E. &amp; Vandvik V. 2013. Conditional cold avoidance drives variation in germination behaviour in Calluna vulgaris. Annals of Botany 112 (5): 801-810.</li>
+<li>Meineri E., Skarpaas O., &amp; Vandvik V. 2012. Modeling alpine plant distributions at the landscape scale: Do biotic interactions matter? Ecological Modeling 231:1-10.</li>
 </ul>
-<p><img alt="Field work at Ulvehaugen = ALP1 site" src="https://tinyimg.io/i/q5EA7X5.jpg" /></p>
-<h2 id="latice-mip-sites-nb-these-coordinates-are-approximate-and-might-change-soon">LATICE-MIP sites 🚧 NB! These coordinates are approximate and might change soon.</h2>
-<table>
-<thead>
-<tr>
-<th>Site/station name</th>
-<th>Lon (X)</th>
-<th>Lat (Y)</th>
-<th>Elevation (Z)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>finseflux</td>
-<td>7.527008533</td>
-<td>60.59383774</td>
-<td>1210</td>
-</tr>
-<tr>
-<td>hisaasen_upper</td>
-<td>12.25481033</td>
-<td>61.10516357</td>
-<td>680</td>
-</tr>
-<tr>
-<td>hisaasen_lower</td>
-<td>12.25089836</td>
-<td>61.1115036</td>
-<td>640</td>
-</tr>
-<tr>
-<td>iskoras</td>
-<td>25.29547425</td>
-<td>69.3408715</td>
-<td>360</td>
-</tr>
-<tr>
-<td>aas</td>
-<td>10.781667</td>
-<td>59.660278</td>
-<td>93.2</td>
-</tr>
-<tr>
-<td>hurdal</td>
-<td>11.078142</td>
-<td>60.372387</td>
-<td>NA</td>
-</tr>
-</tbody>
-</table>
               
             </div>
           </div>

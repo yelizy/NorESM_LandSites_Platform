@@ -112,15 +112,11 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="land-sites/">NorESM land sites</a>
+                    <li class="toctree-l1"><a class="reference internal" href="land-sites/">Sites</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="user_guide/">User guide</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="implementation/">Implementation</a>
                     </li>
                 </ul>
                 <ul>
@@ -164,7 +160,10 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="welcome-to-the-documentation-of-the-noresm-landsites-platform">Welcome to the documentation of the NorESM LandSites Platform</h1>
+                <p><a href="https://www.noresm.org/"><img alt="NorESM logo" src="https://tinyimg.io/i/9AdhM6J.png" title="the Norwegian Earth System Model" /></a>
+<a href="https://www.mn.uio.no/geo/english/research/projects/emerald/"><img alt="EMERALD logo" src="https://tinyimg.io/i/O6Vkl1F.png" title="EMERALD project" /></a>
+<a href="https://www.mn.uio.no/geo/english/research/groups/latice/"><img alt="LATICE logo" src="https://tinyimg.io/i/4IM1ogh.png" title="Land-ATmosphere Interactions in Cold Environments research group" /></a></p>
+<h1 id="welcome-to-the-documentation-of-the-noresm-landsites-platform">Welcome to the documentation of the NorESM LandSites Platform</h1>
 <p>This page describes what the platform contains, how the input data were made, the main functionalities, and model output. See the navigation panel on the left for our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide">user guide</a>, <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">available sites</a>, <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/about/">about us</a>, and <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/">contribution guidelines and Code of Conduct</a>. Advanced users may also be interested in the technical documentation of <a href="https://fates-docs.readthedocs.io/en/stable/">FATES</a> and <a href="https://escomp.github.io/ctsm-docs/versions/release-clm5.0/html/users_guide/index.html">CLM</a>.</p>
 <p>The main code is stored <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform">here</a> in a <a href="https://en.wikipedia.org/wiki/Git" title="a place to store code with version control">GitHub repository</a>. The <code>main</code> branch stores the latest functioning version. Older versions can be accessed under <a href="https://github.com/NorESMhub/NorESM_LandSites_Platform/releases">Releases</a>. This documentation page is made with GitHub pages (<code>gh-pages</code> branch) and <a href="https://www.mkdocs.org/">Mkdocs</a>. To contribute to the code or documentation, see our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/">Contributing</a> instructions. There you will also find our <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/contributing/#code-of-conduct">Code of Conduct</a>.</p>
 <p>Advanced users who want to do development in addition to just running simulations can request resources on e.g. <a href="https://nrec.no/" title="Norwegian Research and Education Cloud: Fast, standardized servers and storage for the Norwegian higher education sector">NREC</a>. An early version of the platform is also available on <a href="https://training.galaxyproject.org/training-material/topics/climate/tutorials/fates/tutorial.html" title="an open, web-based platform for accessible, reproducible, and transparent computational biological research">Galaxy</a>.</p>
@@ -174,7 +173,10 @@
 <h2 id="platform-content">Platform content</h2>
 <p>You can use the platform to run <a href="https://en.wikipedia.org/wiki/Climate_model#/media/File:Global_Climate_Model.png" title="the world is divided into a 3-dimensional grid, where equations can be solved within each gridcell, and information passed between gridcells at certain time points. Single-cell model 'runs' only simulate model processes for a single gridcell, which takes a lot less computational power">single-cell model simulations</a> from a browser on your local computer. We provide <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/land-sites/">sites</a> with high quality input data (atmospheric forcing, land surface data, 'spin-up'), and provide Jupyter notebooks with example python code to plot some input data and model output.</p>
 <p><img alt="Architecture" src="img/architecture.svg" /></p>
-<p><em>Illustration of the software architecture. Colored boxes are folders mounted to the container. The model and the API manage the blue ones, and yellow boxes are created by the code maintainers—an asterisk indicates the folder is optional. After <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide/#0-prerequisites-first-time-setup">first-time installation and setup</a>, users can access the Web User Interface (UI) and Jupyter server. The UI uses and Application Programming Interface (API) to send commands between the users and Docker containers.</em></p>
+<p><em>Illustration of the software architecture.
+Gray boxes are Docker containers. <code>Model</code> container is expanded to show the two services running in there (i.e. <code>API</code> and <code>Tasks</code>) in addition to hosting the model and its dependencies.
+<code>./resources</code> contains all the folders that are mounted into the containers by <code>docker-compose</code>.
+The model and the API manage the blue ones, and yellow folders are created by the code maintainers—an asterisk indicates the folder is optional. After <a href="https://noresmhub.github.io/NorESM_LandSites_Platform/user_guide/#0-prerequisites-first-time-setup">first-time installation and setup</a>, users can access the Web User Interface (UI) and Jupyter server. The UI uses and Application Programming Interface (API) to send commands between the users and Docker containers.</em></p>
 <h3 id="api">API</h3>
 <p>An Application Programming Interface (API) is a set of tools that enables the end-users to interact with a program. The interaction happens by receiving some commands from the users, performing some actions if necessary, and then sending back some results. We created an HTTP API for the model using FastAPI, a popular high-performance framework for Python. It means the API can be used through any medium that can send and receive HTTP requests, e.g., browsers and libraries like python-requests. FastAPI generates a REST API based on <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI specifications</a>. It also automatically generates documentation for the API from the docstrings of the python functions, which includes a description of the inputs and outputs and examples. The documentation is interactive and can be accessed through its web-based user interface.</p>
 <p>The Platform API is responsible for:</p>
@@ -624,7 +626,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="land-sites/" class="btn btn-neutral float-right" title="NorESM land sites">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="land-sites/" class="btn btn-neutral float-right" title="Sites">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -672,5 +674,5 @@
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2022-06-22 13:37:15.525950+00:00
+Build Date UTC : 2022-07-04 10:22:11.478661+00:00
 -->
